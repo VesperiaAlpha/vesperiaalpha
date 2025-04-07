@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Vesperia Alpha</title>
-  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,8 +13,8 @@
     }
 
     body {
-      font-family: 'Unbounded', sans-serif;
-      background: radial-gradient(ellipse at center, #0a0a1a 0%, #000000 100%);
+      font-family: 'Cinzel', serif;
+      background: black;
       color: #ffffff;
       height: 100vh;
       overflow: hidden;
@@ -23,6 +23,27 @@
       align-items: center;
       flex-direction: column;
       text-align: center;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      top: -50%;
+      left: -50%;
+      background: radial-gradient(circle, rgba(127,0,255,0.1) 0%, transparent 60%),
+                  url('https://raw.githubusercontent.com/VesperiaAlpha/vesperiaalpha/main/starfield.gif') repeat;
+      background-size: cover;
+      animation: moveStars 60s linear infinite;
+      z-index: 0;
+      opacity: 0.3;
+    }
+
+    @keyframes moveStars {
+      from { transform: translate(0, 0); }
+      to { transform: translate(100px, 100px); }
     }
 
     h1 {
@@ -30,7 +51,8 @@
       letter-spacing: 2px;
       margin-bottom: 0.2em;
       color: #ffffff;
-      text-shadow: 0 0 10px #7f00ff, 0 0 20px #7f00ff;
+      text-shadow: 0 0 10px #7f00ff, 0 0 30px #7f00ff;
+      z-index: 1;
     }
 
     h2 {
@@ -38,12 +60,14 @@
       margin-bottom: 0.5em;
       font-weight: 400;
       color: #cccccc;
+      z-index: 1;
     }
 
     p {
       font-size: 1em;
       margin-bottom: 2em;
       color: #888888;
+      z-index: 1;
     }
 
     a.button {
@@ -54,6 +78,8 @@
       text-decoration: none;
       transition: all 0.3s ease;
       font-weight: bold;
+      z-index: 1;
+      position: relative;
     }
 
     a.button:hover {
